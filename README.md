@@ -1,5 +1,6 @@
 # 📘 JISR – Digital Cooperative Training Reference  
 **Taif University – College of Computers and Information Technology**  
+
 file:///C:/Users/hp/Desktop/www/jisr_training_hub.html
 ---
 
