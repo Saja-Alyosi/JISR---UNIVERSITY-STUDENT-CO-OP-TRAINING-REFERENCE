@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرجع التدريب التعاوني JISR - جامعة الطائف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #111111;
+            --secondary: #f9f9fb;
+            --border: #e5e5e7;
+            --text-primary: #111111;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --success: #0d9488;
+            --warning: #f59e0b;
+        }
+        
+        html, body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            min-height: 100vh;
+        }
+        
+        /* ===== HEADER ===== */
+        .header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 40px 20px;
+            border-bottom: 3px solid #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-wrapper {
+            flex-shrink: 0;
+        }
+        
+        .logo-box {
+            width: 110px;
+            height: 110px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .header-content h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 6px;
+            word-spacing: 4px;
+        }
+        
+        .header-content .main-title {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .header-content .subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 4px;
+        }
+        
+        .header-content .tagline {
+            font-size: 12px;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        
+        /* ===== STATS SECTION ===== */
+        .stats-wrapper {
+            background-color: #ffffff;
+            padding: 35px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .stats-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: var(--secondary);
+            padding: 24px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .stat-item:hover {
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===== FILTERS SECTION ===== */
+        .filters-section {
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        
+        .filters-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .filter-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-group label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+        
+        input[type="text"],
+        select {
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 13px;
+            background-color: #ffffff;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(17, 17, 17, 0.08);
+            background-color: #ffffff;
+        }
+        
+        input[type="text"]::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .btn-reset {
+            padding: 11px 20px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .btn-reset:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-reset:active {
+            transform: translateY(0);
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .cards-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .feedback-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feedback-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+        
+        .feedback-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .feedback-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        
+        .company-details h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        
+        .company-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .rating-tag {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: 1.5px solid var(--border);
+            letter-spacing: 0.3px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .info-box {
+            background-color: var(--secondary);
+            padding: 14px;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+        }
+        
+        .info-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        
+        .info-value {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .comment-box {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: 14px;
+            background-color: var(--secondary);
+            border-radius: 7px;
+            border-left: 3px solid var(--primary);
+            font-style: italic;
+            margin-top: 12px;
+        }
+        
+        .badge-recommend {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+        
+        .badge-no-recommend {
+            background-color: var(--border);
+            color: var(--primary);
+        }
+        
+        /* ===== NO RESULTS ===== */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .no-results-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .no-results-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 35px 20px;
+            border-top: 3px solid #000000;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 13px;
+            margin: 10px 0;
+            font-weight: 400;
+        }
+        
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333333;
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .header-container {
+                gap: 24px;
+            }
+            
+            .header-content h1 {
+                font-size: 28px;
+            }
+            
+            .logo-box {
+                width: 90px;
+                height: 90px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 28px 16px;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-content h1 {
+                font-size: 24px;
+            }
+            
+            .logo-box {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            input[type="text"],
+            select,
+            .btn-reset {
+                width: 100%;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                padding: 28px 16px;
+            }
+            
+            .feedback-card {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px 12px;
+            }
+            
+            .header-content h1 {
+                font-size: 20px;
+            }
+            
+            .header-content .subtitle {
+                font-size: 12px;
+            }
+            
+            .logo-box {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .main-content {
+                padding: 20px 12px;
+            }
+            
+            .feedback-card {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <div class="logo-box">
+                    <img src="jisr_logo.png" alt="JISR Logo">
+                </div>
+            </div>
+            <div class="header-content">
+                <span class="main-title">مرجع التدريب التعاوني</span>
+                <p class="subtitle">جامعة الطائف - كلية الحاسبات وتقنية المعلومات</p>
+                <p class="tagline">JISR - UNIVERSITY STUDENT CO-OP TRAINING REFERENCE</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- STATISTICS -->
+    <section class="stats-wrapper">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCount">120</span>
+                <span class="stat-label">تقارير تدريب</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="companiesCount">50</span>
+                <span class="stat-label">جهة تدريب</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="recommendCount">95</span>
+                <span class="stat-label">توصيات إيجابية</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="excellentCount">45</span>
+                <span class="stat-label">تقييمات ممتازة</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FILTERS -->
+    <section class="filters-section">
+        <div class="filters-inner">
+            <label class="filter-label">البحث والتصفية</label>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>ابحث عن جهة:</label>
+                    <input type="text" id="searchInput" placeholder="الاسم أو الموقع...">
+                </div>
+                
+                <div class="filter-group">
+                    <label>التقييم:</label>
+                    <select id="ratingFilter">
+                        <option value="">الكل</option>
+                        <option value="ممتازه">ممتازة</option>
+                        <option value="عاديه">عادية</option>
+                        <option value="ماش">متوسطة</option>
+                        <option value="خايسه">سيئة</option>
+                    </select>
+                </div>
+                
+                <button class="btn-reset" onclick="resetFilters()">إعادة تعيين</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="cards-grid" id="feedbackContainer">
+            <div class="no-results">
+                <div class="no-results-icon">⏳</div>
+                <div class="no-results-text">جاري تحميل البيانات...</div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>📧 للاستفسارات والدعم: <a href="mailto:CITTraining@tu.edu.sa">CITTraining@tu.edu.sa</a></p>
+            <p>© 2025 جامعة الطائف - كلية الحاسبات وتقنية المعلومات</p>
+            <p>JISR - جسر التدريب التعاوني الرقمي</p>
+        </div>
+    </footer>
+    
+    <script>
+        const feedbackData = [
+            { company: "معهد الخوارزمي", location: "الطائف", type: "حضوري", rating: "ماش", recommend: "لا", hours: "٤ أيام", tasks: "تصميم واجهات", comment: "إذا في جهة غيرهم روحوا لا تجوا هناك" },
+            { company: "معهد الخوارزمي", location: "الطائف", type: "حضوري", rating: "عاديه", recommend: "نعم", hours: "٥ أيام", tasks: "ورشات عمل", comment: "مكان جميل ومريح" },
+            { company: "قاعدة الملك فهد الجوية", location: "الطائف", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "يومين", tasks: "زيارات ودراسة", comment: "تجربة استثنائية جداً" },
+            { company: "الأساليب الذكية", location: "جدة", type: "عن بعد", rating: "ممتازه", recommend: "نعم", hours: "٣-٤ ساعات", tasks: "برمجة متقدمة", comment: "شركة رائعة وداعمة" },
+            { company: "إدارة الموارد البشرية", location: "الرياض", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٤ ساعات", tasks: "قواعد بيانات", comment: "تدريب احترافي جداً" },
+            { company: "الشركة السعودية للكهرباء", location: "الطائف", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "يومي", tasks: "صيانة أنظمة", comment: "شركة عملاقة منظمة" },
+            { company: "جامعة الملك سعود", location: "الرياض", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٤ أيام", tasks: "مشاريع متنوعة", comment: "بيئة أكاديمية ممتازة" },
+            { company: "سابك", location: "الرياض", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٨ ساعات", tasks: "Power BI", comment: "شركة عالمية احترافية" },
+            { company: "مستشفى الأطفال", location: "الطائف", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٦ ساعات", tasks: "دعم فني", comment: "فريق متعاون جداً" },
+            { company: "Solution by STC", location: "الرياض", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٨ ساعات", tasks: "Big Data", comment: "تقنيات متقدمة جداً" },
+            { company: "مستشفى الأمير منصور", location: "الطائف", type: "حضوري", rating: "خايسه", recommend: "لا", hours: "٨ ساعات", tasks: "عشوائية", comment: "تجربة سيئة للأسف" },
+            { company: "مستشفى الملك عبدالعزيز", location: "الطائف", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٦ ساعات", tasks: "دعم متخصص", comment: "بيئة احترافية جداً" },
+            { company: "تجمع الطائف الصحي", location: "الطائف", type: "حضوري", rating: "عاديه", recommend: "نعم", hours: "متغيرة", tasks: "صيانة", comment: "فريق متعاون" },
+            { company: "وزارة التعليم", location: "الطائف", type: "هجين", rating: "عاديه", recommend: "نعم", hours: "٤:٣٠", tasks: "قواعد بيانات", comment: "تجربة حكومية جيدة" },
+            { company: "أمانة محافظة جدة", location: "جدة", type: "حضوري", rating: "ممتازه", recommend: "نعم", hours: "٤ أيام", tasks: "تطوير ويب", comment: "جهة حكومية متقدمة" }
+        ];
+        
+        let allData = feedbackData;
+        
+        function displayFeedback(data) {
+            const container = document.getElementById('feedbackContainer');
+            
+            if (data.length === 0) {
+                container.innerHTML = `<div class="no-results">
+                    <div class="no-results-icon">🔍</div>
+                    <div class="no-results-text">لا توجد نتائج تطابق معايير البحث</div>
+                </div>`;
+                return;
+            }
+            
+            container.innerHTML = data.map(item => `
+                <div class="feedback-card">
+                    <div class="card-header">
+                        <div class="company-details">
+                            <h3>${item.company}</h3>
+                            <div class="company-location">📍 ${item.location}</div>
+                        </div>
+                        <span class="rating-tag">${item.rating}</span>
+                    </div>
+                    
+                    <div class="card-grid">
+                        <div class="info-box">
+                            <span class="info-label">نوع التدريب</span>
+                            <div class="info-value">${item.type}</div>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">ساعات العمل</span>
+                            <div class="info-value">${item.hours}</div>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">المهام</span>
+                            <div class="info-value">${item.tasks}</div>
+                        </div>
+                    </div>
+                    
+                    ${item.comment ? `<div class="comment-box">"${item.comment}"</div>` : ''}
+                    
+                    <span class="badge-recommend ${item.recommend === 'لا' ? 'badge-no-recommend' : ''}">
+                        ${item.recommend === 'نعم' ? 'موصى به ✓' : 'غير موصى'}
+                    </span>
+                </div>
+            `).join('');
+            
+            updateStats(data);
+        }
+        
+        function updateStats(data) {
+            document.getElementById('totalCount').textContent = data.length;
+            document.getElementById('excellentCount').textContent = data.filter(d => d.rating.includes('ممتازه')).length;
+            document.getElementById('recommendCount').textContent = data.filter(d => d.recommend === 'نعم').length;
+            document.getElementById('companiesCount').textContent = new Set(data.map(d => d.company)).size;
+        }
+        
+        function filterData() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const rating = document.getElementById('ratingFilter').value;
+            
+            let filtered = allData.filter(item => {
+                const matchSearch = !search || 
+                    item.company.toLowerCase().includes(search) || 
+                    item.location.toLowerCase().includes(search);
+                const matchRating = !rating || item.rating.includes(rating);
+                return matchSearch && matchRating;
+            });
+            
+            displayFeedback(filtered);
+        }
+        
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('ratingFilter').value = '';
+            displayFeedback(allData);
+        }
+        
+        document.getElementById('searchInput').addEventListener('input', filterData);
+        document.getElementById('ratingFilter').addEventListener('change', filterData);
+        
+        displayFeedback(allData);
+    </script>
+</body>
+</html>
