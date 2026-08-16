@@ -15,10 +15,6 @@ The site features a modern monochrome visual identity, works entirely offline, a
 | :--- | :--- |
 | `jisr_training_hub.html` | The main website file (contains all HTML, CSS, and JavaScript). |
 | `jisr_logo.png` | The official JISR logo (displayed in the site header). |
-| `دليل_سريع_JISR.txt` | A quick-start guide for immediate use (Arabic). |
-| `JISR_توثيق_شامل.txt` | Comprehensive project documentation (Arabic). |
-| `ملخص_نهائي_JISR.txt` | A summary of achievements and key numbers (Arabic). |
-| `README.md` | This file – the main project guide (English). |
 
 ---
 
