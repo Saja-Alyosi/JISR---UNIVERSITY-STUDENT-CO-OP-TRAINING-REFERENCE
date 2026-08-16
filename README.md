@@ -1,6 +1,6 @@
 # 📘 JISR – Digital Cooperative Training Reference  
 **Taif University – College of Computers and Information Technology**  
-
+file:///C:/Users/hp/Desktop/www/jisr_training_hub.html
 ---
 
 ## 🎯 Project Overview  
@@ -53,3 +53,5 @@ The site features a modern monochrome visual identity, works entirely offline, a
 - 📱 **Fully Responsive Design** (works perfectly on desktops, tablets, and mobile phones).
 - 📦 **Built-in Data** (includes 15+ real training reports, easily expandable).
 - 🌐 **Works Offline** – secure and fast.
+  
+<img width="1903" height="874" alt="image" src="https://github.com/user-attachments/assets/feaf6161-ed12-464d-b654-b14a5b8163ca" />
